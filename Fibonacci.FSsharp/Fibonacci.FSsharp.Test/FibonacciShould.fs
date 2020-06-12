@@ -1,36 +1,30 @@
-module Tests
+module ``Fibonacci Should``
 
 open System
 open Xunit
 open Fibonacci
 
-[<Fact>]
-let ``Return 0 when input is 0`` () =
-    let result = Calculer 0
-    Assert.Equal(0, result)
+[<Trait("Category", "UnitTests")>]
+[<Theory>]
+[<InlineData(0, 0)>]
+[<InlineData(1, 1)>]
+[<InlineData(2, 1)>]
+[<InlineData(3, 2)>]
+[<InlineData(4, 3)>]
+[<InlineData(5, 5)>]
+[<InlineData(6, 8)>]
+[<InlineData(7, 13)>]
+[<InlineData(8, 21)>]
+[<InlineData(9, 34)>]
+[<InlineData(10, 55)>]
+[<InlineData(11, 89)>]
+[<InlineData(12, 144)>]
+[<InlineData(13, 233)>]
+[<InlineData(14, 377)>]
+[<InlineData(15, 610)>]
+[<InlineData(16, 987)>]
+let ``Return the sum of the two previous number`` (input: int, expected: int) =
+    let result = Calculer input
+    Assert.Equal(expected, result)
 
-[<Fact>]
-let ``Return 1 when input is 1`` () =
-    let result = Calculer 1
-    Assert.Equal(1, result)
-
-[<Fact>]
-let ``Return 1 when input is 2`` () =
-    let result = Calculer 2
-    Assert.Equal(1, result)
-
-[<Fact>]
-let ``Return 2 when input is 3`` () =
-    let result = Calculer 3
-    Assert.Equal(2, result)
-
-[<Fact>]
-let ``Return 89 when input is 11`` () =
-    let result = Calculer 11
-    Assert.Equal(89, result)
-    
-[<Fact>]
-let ``Return 610 when input is 15`` () =
-    let result = Calculer 15
-    Assert.Equal(610, result)
     
